@@ -18,7 +18,7 @@ logging.basicConfig(
     level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-TOKEN = os.getenv('TELEGRAM_TOKEN', '8303269115:AAERcGRQvKFj10wRgUh5dsa5xzTAB2iZbDw')
+TOKEN = os.getenv('TELEGRAM_TOKEN', "8394111649:AAGZ8jsVqnWPKBeBFlRnXdoM95Etp3BQCLs")
 
 #Datos mejorados para México y EE.UU.
 COUNTRIES = {
