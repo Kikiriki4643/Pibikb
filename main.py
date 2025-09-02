@@ -10,19 +10,17 @@ from telegram.ext import (
     CallbackQueryHandler,
     ContextTypes,
     MessageHandler,
-    filters
-)
+    filters)
 
-# Configuración básica
+#Configuración básica
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
+    level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 TOKEN = os.getenv('TELEGRAM_TOKEN', '8303269115:AAERcGRQvKFj10wRgUh5dsa5xzTAB2iZbDw')
 
-# Datos mejorados para México y EE.UU.
+#Datos mejorados para México y EE.UU.
 COUNTRIES = {
     "USA": {
         "cities": ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"],
@@ -54,7 +52,7 @@ COUNTRIES = {
     }
 }
 
-# Direcciones realistas por ciudad
+#Direcciones realistas por ciudad
 ADDRESSES = {
     "Ciudad de México": {
         "streets": ["Paseo de la Reforma", "Avenida Insurgentes", "Calzada de Tlalpan", 
@@ -74,7 +72,7 @@ ADDRESSES = {
     }
 }
 
-# Tiempos de espera realistas
+#Tiempos de espera realistas
 WAIT_TIMES = {
     'scan': [5, 10],
     'extract': [8, 15],
@@ -108,12 +106,12 @@ def generate_realistic_name(country):
     gender = random.choice(["male", "female"])
     first_name = random.choice(first_names[gender])
     
-    # Segundo nombre común en México
+    #Segundo nombre común en México
     if country == "México" and random.random() > 0.7:
         second_name = random.choice(first_names[gender])
         first_name = f"{first_name} {second_name}"
     
-    # Apellidos compuestos
+    #Apellidos compuestos
     if country == "México" and random.random() > 0.5:
         last_name = f"{random.choice(last_names)} {random.choice(last_names)}"
     else:
